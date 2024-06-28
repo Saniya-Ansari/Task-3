@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Elements with JavaScript || task 3</title>
+    <link rel="stylesheet" href="task3.css">
+</head>
+<body>
+    <div id="navbar">
+        <a href="#">Menu</a>
+        <a href="#">Account</a>
+        <a href="#">Github</a>
+        <a href="#">Contact</a>
+        <a href="#">LinkedIn</a>
+    </div>
+
+    <form id="myForm">
+        <input type="text" id="name" placeholder="Enter Full Name"><br>
+        <input type="text" id="email" placeholder="Enter Email Id"><br>
+        <input type="text" id="password" placeholder="Enter Password"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <button id="refreshButton">Click to refresh</button>
+
+    <div id="output"><h5 style="font-size: 15px;  font-weight: 600;">This is dynamic container <br> <p style="margin-top: 6%;">Please Submit the form</p></h5></div>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            console.log(`Name: ${name}`);
+            console.log(`Email: ${email}`);
+            console.log(`Password: ${password}`);
+
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = `
+                <h3>Name: ${name}</h3>
+                <h3>Email: ${email}</h3>
+                <h3>Password: ${password}</h3>
+            `;
+        });
+
+        
+        document.getElementById('refreshButton').addEventListener('click', function() {
+            location.reload();
+        });
+    </script>
+</body>
+</html>
